@@ -1,3 +1,6 @@
+---
+output: github_document
+---
 
 # 🌳 ecoPointXAI — Explainable 3D Forest Intelligence
 
@@ -92,7 +95,7 @@ If you use **ecoPointXAI** in your research, please cite:
 ## 🛠️ Development Notes
 
 - Built and tested under **R 4.4.x**
-- Large example LiDAR file reduced to **<3 MB** for CRAN safety
+- Example LiDAR file reduced to **<3 MB** for CRAN safety
 - Heavy tests and examples are wrapped with `skip_on_cran()`
 - Compatible with Linux, macOS, and Windows
 
@@ -100,7 +103,7 @@ If you use **ecoPointXAI** in your research, please cite:
 
 ### 🧩 Maintainer
 **Muhammad Qasim** – [@Qasimkhan563](https://github.com/Qasimkhan563)  
-📧 *for research inquiries and collaboration, please contact via GitHub Issues or Discussions.*
+📧 *For research inquiries and collaboration, please contact via GitHub Issues or Discussions.*
 
 ---
 
