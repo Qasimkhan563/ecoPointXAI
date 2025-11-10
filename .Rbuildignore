@@ -1,2 +1,15 @@
 ^ecoPointXAI\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
+^README\.Rmd$
+^doc$
+^Meta$
+^outputs$
+^lib$
+^ecoPointXAI_dashboard\.html$
+^checkpoint_pointnet\.pt$
+^data$
+^.*\.obj$
+^checkpoint_pointnet.pt$
+^ecoPointXAI_dashboard.html$
+^tests/testthat/outputs$

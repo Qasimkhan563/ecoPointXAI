@@ -1,0 +1,130 @@
+---
+title: "ecoPointXAI: Explainable 3D Forest Analytics"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ecoPointXAI Intro Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.align = "center",
+  warning = FALSE,
+  message = TRUE
+)
+```
+
+# 🧩 ecoPointXAI Introduction
+
+This vignette provides a compact, end-to-end example of how to use **ecoPointXAI**
+for explainable 3D forest analytics — from voxel data preprocessing to model explainability visualization.
+
+---
+
+## 1️⃣ Load required libraries
+
+```{r}
+library(ecoPointXAI)
+library(torch)
+library(rgl)
+```
+
+---
+
+## 2️⃣ Prepare example voxel data
+
+For demonstration, the function `example_voxel_block()` generates a small 3D voxel sample (X, Y, Z, value).
+
+```{r}
+# Try using example_voxel_block() if available, else create a demo dataset
+if (exists("example_voxel_block", mode = "function")) {
+  vox <- example_voxel_block()
+} else {
+  set.seed(123)
+  vox <- data.frame(
+    X = runif(200, 0, 10),
+    Y = runif(200, 0, 10),
+    Z = runif(200, 0, 5),
+    value = runif(200)
+  )
+}
+
+summary(vox)
+hist(vox$Z, main = "Voxel Heights Distribution", col = "forestgreen", border = NA)
+```
+
+---
+
+## 3️⃣ Train a minimal PointNet model
+
+We define and train a lightweight model on the example dataset for just a few epochs.
+
+```{r, eval=FALSE}
+model <- pointnet_model(input_dim = 4, output_dim = 1)
+
+trained <- train_pointnet(
+  model,
+  train_loader = vox$train,
+  val_loader   = vox$val,
+  epochs       = 5,
+  patience     = 2
+)
+```
+
+---
+
+## 4️⃣ Generate explainability maps
+
+Once trained, the model can be explained using either gradient-based or SHAP methods.
+Here, we use **gradient-based** voxel importance.
+
+```{r, eval=FALSE}
+grad_exp <- explain_pointnet(
+  model       = trained$model,
+  voxel_data  = vox$features,
+  method      = "gradients"
+)
+
+head(grad_exp$feature_importance)
+```
+
+---
+
+## 5️⃣ Visualize explainability in 3D
+
+We can now visualize voxel-level importance fields interactively in RGL or export them as an HTML scene.
+
+```{r, eval=FALSE}
+visualize_explainability(
+  vox_df         = vox$coords,
+  explain_result = grad_exp,
+  export_path    = tempfile(fileext = ".html")
+)
+```
+
+This will open an interactive 3D viewer showing the **importance distribution** of each voxel.
+
+---
+
+## ✅ Summary
+
+In this vignette, you have:
+
+1. Loaded voxel-based LiDAR data  
+2. Trained a minimal PointNet model  
+3. Computed gradient-based explainability  
+4. Visualized model attention in 3D space  
+
+To explore advanced visualization (e.g., **virtual forest rendering**, SHAP comparison, or ecological interpretation),
+see the companion vignette `vignettes/virtual_forest.Rmd`.
+
+---
+
+## 🔗 Session Info
+
+```{r}
+sessionInfo()
+```
