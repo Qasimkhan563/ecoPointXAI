@@ -14,14 +14,15 @@ jobs:
       - name: 🧩 Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🧠 Set up R
+      - name: 🧠 Set up R (with binary packages)
         uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
+          install-from: binary
 
       - name: 📦 Install required R packages
         run: |
-          Rscript -e 'install.packages(c("rmarkdown", "devtools", "knitr"))'
+          Rscript -e 'install.packages(c("rmarkdown", "devtools", "knitr"), repos = "https://cloud.r-project.org")'
 
       - name: 🧶 Knit README.Rmd to README.md
         run: |
