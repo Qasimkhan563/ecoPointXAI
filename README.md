@@ -54,7 +54,7 @@ library(ecoPointXAI)
 library(ecoPointXAI)
 
 # 1️⃣ Load and voxelize a sample LiDAR point cloud
-las_path <- system.file("extdata", "forest_plot_small.laz", package = "ecoPointXAI")
+las_path <- system.file("extdata", "forest_plot.laz", package = "ecoPointXAI")
 vox <- preprocess_voxelize(las_path, voxel_size = 1)
 
 # 2️⃣ Compute ecological canopy metrics
