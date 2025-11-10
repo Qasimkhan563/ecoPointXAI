@@ -19,11 +19,12 @@ jobs:
           use-public-rspm: true
           install-from: binary
 
-      - name: 📦 Install dependencies (fast binary)
+      - name: 📦 Install dependencies
         run: |
-          Rscript -e 'install.packages(c("remotes", "rcmdcheck"), repos="https://cloud.r-project.org")'
+          Rscript -e 'install.packages("remotes", repos="https://cloud.r-project.org")'
           Rscript -e 'remotes::install_deps(dependencies = TRUE)'
+          Rscript -e 'install.packages("rcmdcheck", repos="https://cloud.r-project.org")'
 
       - name: ✅ Run R CMD check
         run: |
-          Rscript -e 'rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "warning")'
+          Rscript -e 'if (!requireNamespace("rcmdcheck", quietly = TRUE)) install.packages("rcmdcheck", repos="https://cloud.r-project.org"); rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "warning")'
