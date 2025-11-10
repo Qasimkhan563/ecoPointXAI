@@ -1,4 +1,4 @@
-````markdown
+
 # 🌳 ecoPointXAI — Explainable 3D Forest Intelligence
 
 [![R-CMD-check](https://github.com/Qasimkhan563/ecoPointXAI/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Qasimkhan563/ecoPointXAI/actions)
@@ -32,7 +32,7 @@ You can install the **development version** from GitHub:
 devtools::install_github("Qasimkhan563/ecoPointXAI")
 
 library(ecoPointXAI)
-````
+```
 
 ---
 
@@ -76,46 +76,32 @@ or visit the [📖 GitHub Wiki](https://github.com/Qasimkhan563/ecoPointXAI/wiki
 
 If you use **ecoPointXAI** in your research, please cite:
 
-> Muhammad Qasim (2025). *ecoPointXAI: Explainable 3D Forest Analytics with PointNet and LiDAR.*
-> R package version 0.0.1.
-> Available at: [https://github.com/Qasimkhan563/ecoPointXAI](https://github.com/Qasimkhan563/ecoPointXAI)
+> Muhammad Qasim (2025). *ecoPointXAI: Explainable 3D Forest Analytics with PointNet and LiDAR.*  
+> R package version 0.0.1.  
+> Available at: <https://github.com/Qasimkhan563/ecoPointXAI>
 
 ---
 
 ## 🧠 Why ecoPointXAI?
 
-🌍 Traditional 2D raster workflows overlook the 3D structure of forests.
+🌍 Traditional 2D raster workflows overlook the 3D structure of forests.  
 **ecoPointXAI** brings explainable deep learning into 3D space — allowing scientists to *see why* their models behave as they do, improving interpretability, transparency, and ecological relevance.
 
 ---
 
 ## 🛠️ Development Notes
 
-* Built and tested under **R 4.4.x**
-* Large example LiDAR file reduced to **<3 MB** for CRAN safety
-* Heavy tests and examples are wrapped with `skip_on_cran()`
-* Compatible with Linux, macOS, and Windows
+- Built and tested under **R 4.4.x**
+- Large example LiDAR file reduced to **<3 MB** for CRAN safety
+- Heavy tests and examples are wrapped with `skip_on_cran()`
+- Compatible with Linux, macOS, and Windows
 
 ---
 
 ### 🧩 Maintainer
-
-**Muhammad Qasim** – [@Qasimkhan563](https://github.com/Qasimkhan563)
+**Muhammad Qasim** – [@Qasimkhan563](https://github.com/Qasimkhan563)  
 📧 *for research inquiries and collaboration, please contact via GitHub Issues or Discussions.*
 
 ---
 
-> *ecoPointXAI: Explainable 3D Forest Intelligence for LiDAR-based Ecological Insights.*
-
-```
-
----
-
-### ✅ What’s new in this version:
-- Uses **GitHub badges** (R CMD Check, License, Version, R logo)
-- Links to your **wiki**, **license**, and **release page**
-- Replaced large file reference → `forest_plot_small.laz`
-- Streamlined example and consistent emoji + markdown styling
-- Adds **maintainer footer** + version note
-
----
+> _ecoPointXAI: Explainable 3D Forest Intelligence for LiDAR-based Ecological Insights._
