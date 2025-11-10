@@ -1,71 +1,121 @@
+````markdown
 # 🌳 ecoPointXAI — Explainable 3D Forest Intelligence
 
-`ecoPointXAI` provides an end-to-end, explainable 3D forest analytics pipeline built for LiDAR point cloud data.  
-It combines **voxel-based ecological feature engineering**, **PointNet deep learning**, and **explainability methods** (SHAP, gradients) to model, visualize, and interpret forest canopy structure in a transparent and reproducible way.
+[![R-CMD-check](https://github.com/Qasimkhan563/ecoPointXAI/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Qasimkhan563/ecoPointXAI/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/Qasimkhan563/ecoPointXAI?include_prereleases)](https://github.com/Qasimkhan563/ecoPointXAI/releases)
+[![Made with R](https://img.shields.io/badge/Made%20with-R-blue.svg)](https://cran.r-project.org/)
+
+---
+
+### 🌲 **ecoPointXAI** provides an *explainable 3D forest analytics pipeline* for LiDAR point clouds.  
+It bridges **3D deep learning (PointNet)**, **ecological feature engineering**, and **explainable AI (XAI)** techniques — making it possible to model, visualize, and interpret forest canopy structure transparently.
+
+---
 
 ## ✨ Key Features
 
-- 📦 **Voxelization & Preprocessing** — Convert LiDAR point clouds into 3D voxel grids.
-- 🌲 **Ecological Metrics** — Compute canopy height, cover, and structural complexity.
-- 🧠 **Deep Learning (PointNet)** — Train explainable 3D neural models on voxelized features.
-- 🔍 **Explainability** — Apply SHAP or gradient-based methods to interpret model behavior.
-- 🎨 **Visualization Tools** — Interactive 3D mapping and metric visualization for ecological insights.
+✅ **Voxelization & Preprocessing** — Convert raw LiDAR point clouds into structured 3D voxel grids.  
+🌿 **Ecological Metrics** — Derive canopy height, cover, and structural complexity indicators.  
+🧠 **Deep Learning (PointNet)** — Train explainable 3D neural models directly on point clouds.  
+🔍 **Explainability** — Use SHAP or gradient-based attributions to understand model reasoning.  
+🎨 **Visualization Tools** — Render interactive 3D terrain, canopy metrics, and feature importance.
+
+---
 
 ## 🧩 Installation
 
-To install the **development version** from GitHub:
+You can install the **development version** from GitHub:
 
 ```r
 # install.packages("devtools")
-devtools::install_github("qasimkhan563/ecoPointXAI")
-```
+devtools::install_github("Qasimkhan563/ecoPointXAI")
 
-After installation:
+library(ecoPointXAI)
+````
+
+---
+
+## 🚀 Quick Example
 
 ```r
 library(ecoPointXAI)
-```
 
-## 🚀 Example Usage
-
-```r
-library(ecoPointXAI)
-
-# 1️⃣ Read and voxelize a LiDAR point cloud
-las_path <- system.file("extdata", "forest_plot.laz", package = "ecoPointXAI")
+# 1️⃣ Load and voxelize a sample LiDAR point cloud
+las_path <- system.file("extdata", "forest_plot_small.laz", package = "ecoPointXAI")
 vox <- preprocess_voxelize(las_path, voxel_size = 1)
 
-# 2️⃣ Compute ecological metrics
+# 2️⃣ Compute ecological canopy metrics
 metrics <- compute_ecological_metrics(vox)
 
 # 3️⃣ Train a lightweight PointNet model
 model <- pointnet_model(num_features = 3, num_classes = 2)
 
-# 4️⃣ Explain model predictions
+# 4️⃣ Generate explainability outputs
 exp <- explain_pointnet(model, vox, method = "gradients")
 
-# 5️⃣ Visualize explainability in 3D
+# 5️⃣ Visualize feature importance
 visualize_explainability(exp)
 ```
 
-## 📘 Learn More
+---
 
-See the vignette for a complete example:
+## 📘 Documentation
+
+Full vignette and examples are available in:
 
 ```r
 vignette("ecoPointXAI_intro")
 ```
 
-## 🤝 Citation & Acknowledgement
-
-If you use `ecoPointXAI` in your research, please cite:
-
-> Muhammad Qasim (2025). *ecoPointXAI: Explainable 3D Forest Analytics with PointNet and LiDAR*.  
-> R package version 0.0.1. <https://github.com/qasimkhan563/ecoPointXAI>
+or visit the [📖 GitHub Wiki](https://github.com/Qasimkhan563/ecoPointXAI/wiki) for extended tutorials.
 
 ---
 
-### 🧠 Why use ecoPointXAI?
+## 🤝 Citation
 
-Traditional 2D raster-based analyses often fail to capture forest structural complexity.  
-`ecoPointXAI` bridges 3D deep learning with ecological interpretability—empowering forest scientists to understand *why* their models predict as they do.
+If you use **ecoPointXAI** in your research, please cite:
+
+> Muhammad Qasim (2025). *ecoPointXAI: Explainable 3D Forest Analytics with PointNet and LiDAR.*
+> R package version 0.0.1.
+> Available at: [https://github.com/Qasimkhan563/ecoPointXAI](https://github.com/Qasimkhan563/ecoPointXAI)
+
+---
+
+## 🧠 Why ecoPointXAI?
+
+🌍 Traditional 2D raster workflows overlook the 3D structure of forests.
+**ecoPointXAI** brings explainable deep learning into 3D space — allowing scientists to *see why* their models behave as they do, improving interpretability, transparency, and ecological relevance.
+
+---
+
+## 🛠️ Development Notes
+
+* Built and tested under **R 4.4.x**
+* Large example LiDAR file reduced to **<3 MB** for CRAN safety
+* Heavy tests and examples are wrapped with `skip_on_cran()`
+* Compatible with Linux, macOS, and Windows
+
+---
+
+### 🧩 Maintainer
+
+**Muhammad Qasim** – [@Qasimkhan563](https://github.com/Qasimkhan563)
+📧 *for research inquiries and collaboration, please contact via GitHub Issues or Discussions.*
+
+---
+
+> *ecoPointXAI: Explainable 3D Forest Intelligence for LiDAR-based Ecological Insights.*
+
+```
+
+---
+
+### ✅ What’s new in this version:
+- Uses **GitHub badges** (R CMD Check, License, Version, R logo)
+- Links to your **wiki**, **license**, and **release page**
+- Replaced large file reference → `forest_plot_small.laz`
+- Streamlined example and consistent emoji + markdown styling
+- Adds **maintainer footer** + version note
+
+---
