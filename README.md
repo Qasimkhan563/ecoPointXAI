@@ -1,7 +1,6 @@
 
 # 🌳 ecoPointXAI — Explainable 3D Forest Intelligence
 
-[![R-CMD-check](https://github.com/Qasimkhan563/ecoPointXAI/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Qasimkhan563/ecoPointXAI/actions)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GitHub
